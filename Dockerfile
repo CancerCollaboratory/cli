@@ -27,4 +27,3 @@ RUN mkdir -p /collab/storage && \
     tar xvz --strip-components 1
     
 WORKDIR /collab
-CMD ["bash"]

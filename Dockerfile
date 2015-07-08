@@ -16,12 +16,15 @@ RUN apt-get install -y \
     oracle-java8-set-default
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
-# Create the application directory
-RUN mkdir -p /collab/metadata
-
-# Install application
-RUN cd /collab/metadata && \
+# Install applications
+RUN mkdir -p /collab/metadata && \
+    cd /collab/metadata && \
     wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/dcc-metadata-client/[RELEASE]/dcc-metadata-client-[RELEASE]-dist.tar.gz | \
     tar xvz --strip-components 1
-
+RUN mkdir -p /collab/storage && \
+    cd /collab/storage && \
+    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/collab-release/collaboratory/object-store-client/[RELEASE]/object-store-client-[RELEASE]-dist.tar.gz | \
+    tar xvz --strip-components 1
+    
+WORKDIR /collab
 CMD ["bash"]

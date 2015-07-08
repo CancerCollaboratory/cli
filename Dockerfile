@@ -22,6 +22,6 @@ RUN mkdir -p /collab/metadata
 # Install application
 RUN cd /collab/metadata && \
     wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/dcc-metadata-client/[RELEASE]/dcc-metadata-client-[RELEASE]-dist.tar.gz | \
-    tar xvz --strip 1
+    tar xvz --strip-components 1
 
 CMD ["bash"]

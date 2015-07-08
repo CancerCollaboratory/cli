@@ -17,9 +17,11 @@ RUN apt-get install -y \
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Create the application directory
-RUN mkdir /collab/
+RUN mkdir -p /collab/metadata
 
 # Install application
-RUN cd /collab && wget -qO- https://goo.gl/WjJZlt | tar xvz
+RUN cd /collab/metadata && \
+    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/dcc-metadata-client/[RELEASE]/dcc-metadata-client-[RELEASE]-dist.tar.gz | \
+    tar xvz --strip 1
 
 CMD ["bash"]

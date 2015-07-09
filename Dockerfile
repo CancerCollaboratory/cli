@@ -29,5 +29,6 @@ RUN mkdir -p /collab/storage && \
 RUN mkdir -p /collab/gitroot && cd /collab/gitroot && \
     git clone https://github.com/CancerCollaboratory/cli.git && \
     ln -s /collab/gitroot/cli/upload.sh /collab/upload.sh
+RUN mkdir -p /collab/upload
 
 WORKDIR /collab

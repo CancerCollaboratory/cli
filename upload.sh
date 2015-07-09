@@ -17,11 +17,11 @@ function metadata_error() {
 }
 
 # Check Arguments and Environment Variables
-[[ -z $1 ]] && argument_error
-[[ -z ACCESS_TOKEN ]] && environment_variable_error
+[[ -z ${1} ]] && argument_error
+[[ -z ${ACCESS_TOKEN} ]] && environment_variable_error
 
 # Register with metadata service
-bash /bin/dcc-metadata-client -i $1 -m manifest.txt -o /
+bash /bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /
 [[ ! -f /manifest.txt ]] && metadata_error
 
 # Upload the datafiles

@@ -13,7 +13,8 @@ RUN apt-get update && apt-get upgrade -y
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get install -y \
     oracle-java8-installer \
-    oracle-java8-set-default
+    oracle-java8-set-default \
+    git
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Install applications
@@ -25,5 +26,8 @@ RUN mkdir -p /collab/storage && \
     cd /collab/storage && \
     wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/collab-release/collaboratory/object-store-client/[RELEASE]/object-store-client-[RELEASE]-dist.tar.gz | \
     tar xvz --strip-components 1
-    
+RUN mkdir -p /collab/gitroot && cd /collab/gitroot && \
+    git clone https://github.com/CancerCollaboratory/cli.git && \
+    ln -s /collab/gitroot/cli/upload.sh /collab/upload.sh
+
 WORKDIR /collab

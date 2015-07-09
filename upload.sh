@@ -25,3 +25,4 @@ bash /bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /
 [[ ! -f /manifest.txt ]] && metadata_error
 
 # Upload the datafiles
+bash /bin/col-repo --manifest /manifest.txt

@@ -21,8 +21,8 @@ function metadata_error() {
 [[ -z ${ACCESS_TOKEN} ]] && environment_variable_error
 
 # Register with metadata service
-bash /bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /collab
+bash /collab/storage/bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /collab
 [[ ! -f /manifest.txt ]] && metadata_error
 
 # Upload the datafiles
-bash /bin/col-repo --manifest /collab/manifest.txt
+bash /collab/storage/bin/col-repo --manifest /collab/manifest.txt

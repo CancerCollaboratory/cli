@@ -25,4 +25,4 @@ bash /collab/storage/bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /colla
 [[ ! -f /manifest.txt ]] && metadata_error
 
 # Upload the datafiles
-bash /collab/storage/bin/col-repo --manifest /collab/manifest.txt
+bash /collab/storage/bin/col-repo upload --manifest /collab/manifest.txt

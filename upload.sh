@@ -22,7 +22,7 @@ function metadata_error() {
 
 # Register with metadata service
 bash /collab/metadata/bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /collab
-[[ ! -f /manifest.txt ]] && metadata_error
+[[ ! -f /collab/manifest.txt ]] && metadata_error
 
 # Upload the datafiles
 bash /collab/storage/bin/col-repo upload --manifest /collab/manifest.txt

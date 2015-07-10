@@ -7,7 +7,7 @@ function argument_error() {
 
 function environment_variable_error() {
     echo "The following environment variables need to be defined:"
-    echo "ACCESS_TOKEN"
+    echo "ACCESSTOKEN"
     exit 1
 }
 
@@ -18,7 +18,7 @@ function metadata_error() {
 
 # Check Arguments and Environment Variables
 [[ -z ${1} ]] && argument_error
-[[ -z ${ACCESS_TOKEN} ]] && environment_variable_error
+[[ -z ${ACCESSTOKEN} ]] && environment_variable_error
 
 # Register with metadata service
 bash /collab/metadata/bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /collab

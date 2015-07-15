@@ -26,3 +26,6 @@ bash /collab/metadata/bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /coll
 
 # Upload the datafiles
 bash /collab/storage/bin/col-repo upload --manifest /collab/manifest.txt
+
+# Cleanup the manifest
+mv /collab/manifest.txt /collab/upload/completed_manifest.txt

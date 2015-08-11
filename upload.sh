@@ -35,3 +35,7 @@ bash /collab/storage/bin/col-repo upload --manifest /collab/manifest.txt
 
 # Cleanup the manifest
 [[ -f /collab/manifest.txt ]] && mv /collab/manifest.txt /collab/upload/completed_manifest.txt
+
+# Consolidate log files
+cp /collab/metadata/logs/* /collab/upload/logs
+cp /collab/storage/logs/* /collab/upload/logs

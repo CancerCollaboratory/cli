@@ -18,7 +18,7 @@ RUN apt-get install -y \
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Install S3cmd for Log Aggregation
-RUN apt-get install -y\
+RUN apt-get install -y \
     python-pip
 RUN pip install s3cmd
 

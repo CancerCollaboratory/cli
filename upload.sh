@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 function argument_error() {
     echo "Usage:  upload.sh [path to uuid-folder]"
     exit 1

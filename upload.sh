@@ -18,6 +18,11 @@ function metadata_error() {
     exit 1
 }
 
+function download_error() {
+    echo "Upload of data to S3 failed."
+    exit 1
+}
+
 # Check Arguments and Environment Variables
 [[ -z ${1} ]] && argument_error
 [[ -z ${ACCESSTOKEN} ]] && environment_variable_error
@@ -28,6 +33,7 @@ bash /collab/metadata/bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /coll
 
 # Upload the datafiles
 bash /collab/storage/bin/col-repo upload --manifest /collab/manifest.txt
+[[ $? -ne 0 ]] && download_error
 
 # Cleanup the manifest
 [[ -f /collab/manifest.txt ]] && mv /collab/manifest.txt /collab/upload/completed_manifest.txt

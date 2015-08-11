@@ -14,9 +14,13 @@ RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true 
 RUN apt-get install -y \
     oracle-java8-installer \
     oracle-java8-set-default \
-    git \
-    s3cmd
+    git
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+
+# Install S3cmd for Log Aggregation
+RUN apt-get install -y\
+    python-pip
+RUN pip install s3cmd
 
 # Install applications
 RUN mkdir -p /collab/metadata && \

@@ -37,5 +37,6 @@ bash /collab/storage/bin/col-repo upload --manifest /collab/manifest.txt
 [[ -f /collab/manifest.txt ]] && mv /collab/manifest.txt /collab/upload/completed_manifest.txt
 
 # Consolidate log files
+[[ ! -d /collab/upload/logs ]] && mkdir /collab/upload/logs
 cp /collab/metadata/logs/* /collab/upload/logs
 cp /collab/storage/logs/* /collab/upload/logs

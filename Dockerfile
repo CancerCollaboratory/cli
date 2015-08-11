@@ -29,7 +29,8 @@ RUN mkdir -p /collab/storage && \
     tar xvz --strip-components 1
 RUN mkdir -p /collab/gitroot && cd /collab/gitroot && \
     git clone https://github.com/CancerCollaboratory/cli.git && \
-    ln -s /collab/gitroot/cli/upload.sh /collab/upload.sh
+    ln -s /collab/gitroot/cli/upload.sh /collab/upload.sh && \
+    ln -s /collab/gitroot/cli/consolidate.sh /collab/consolidate.sh && \
 RUN mkdir -p /collab/upload
 
 WORKDIR /collab

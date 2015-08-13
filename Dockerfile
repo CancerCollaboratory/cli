@@ -25,11 +25,11 @@ RUN pip install s3cmd
 # Install applications
 RUN mkdir -p /collab/metadata && \
     cd /collab/metadata && \
-    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/dcc-metadata-client/[RELEASE]/dcc-metadata-client-[RELEASE]-dist.tar.gz | \
+    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/dcc-metadata-client/0.0.12/dcc-metadata-client-0.0.12-dist.tar.gz | \
     tar xvz --strip-components 1
 RUN mkdir -p /collab/storage && \
     cd /collab/storage && \
-    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/collab-release/collaboratory/object-store-client/[RELEASE]/object-store-client-[RELEASE]-dist.tar.gz | \
+    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/collab-release/collaboratory/object-store-client/0.0.19/object-store-client-0.0.19-dist.tar.gz | \
     tar xvz --strip-components 1
 RUN mkdir -p /collab/gitroot && cd /collab/gitroot && \
     git clone https://github.com/CancerCollaboratory/cli.git && \

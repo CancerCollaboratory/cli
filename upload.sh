@@ -29,11 +29,11 @@ function download_error() {
 
 # Register with metadata service
 bash /collab/metadata/bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /collab
-[[ $? -ne 0 ]] && exit_code=metadata_error
+[[ $? -ne 0 ]] && metadata_error
 
 # Upload the datafiles
 bash /collab/storage/bin/col-repo upload --manifest /collab/manifest.txt
-[[ $? -ne 0 ]] && exit_code=download_error
+[[ $? -ne 0 ]] && download_error
 
 # Cleanup the manifest
 [[ -f /collab/manifest.txt ]] && mv /collab/manifest.txt /collab/upload/completed_manifest.txt
@@ -45,3 +45,4 @@ cp /collab/storage/logs/* /collab/upload/logs
 
 # Final Exit Code
 exit $exit_code
+

@@ -29,7 +29,7 @@ RUN mkdir -p /collab/metadata && \
     tar xvz --strip-components 1
 RUN mkdir -p /collab/storage && \
     cd /collab/storage && \
-    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/collab-release/collaboratory/object-store-client/0.0.19/object-store-client-0.0.19-dist.tar.gz | \
+    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/simple/dcc-release/collaboratory/object-store-client/0.0.21/object-store-client-0.0.21-dist.tar.gz | \
     tar xvz --strip-components 1
 RUN mkdir -p /collab/gitroot && cd /collab/gitroot && \
     git clone https://github.com/CancerCollaboratory/cli.git && \

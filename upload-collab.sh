@@ -3,7 +3,7 @@
 exit_code=0
 
 function argument_error() {
-    echo "Usage:  upload-ceph.sh [path to uuid-folder]"
+    echo "Usage:  upload-collab [path to uuid-folder]"
     exit 1
 }
 
@@ -19,7 +19,7 @@ function metadata_error() {
 }
 
 function download_error() {
-    echo "Upload of data to Ceph failed."
+    echo "Upload of data to Collaboratory failed."
     exit_code=1
 }
 
@@ -32,7 +32,7 @@ bash /collab/metadata/bin/dcc-metadata-client -i "${1}" -m manifest.txt -o /coll
 [[ $? -ne 0 ]] && metadata_error
 
 # Upload the datafiles
-bash /collab/storage-ceph/bin/dcc-storage-client upload --manifest /collab/manifest.txt
+bash /collab/storage-ceph/bin/dcc-storage-client-ceph upload --manifest /collab/manifest.txt
 [[ $? -ne 0 ]] && download_error
 
 # Cleanup the manifest

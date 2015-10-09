@@ -43,10 +43,10 @@ RUN mkdir -p /collab/storage && \
     tar xvz --strip-components 1
 RUN mkdir -p /collab/storage-ceph && \
     cd /collab/storage-ceph && \
-    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/simple/dcc-snapshot/dcc-storage-client-ceph-0.0.26-SNAPSHOT-dist.tar.gz | \
+    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/simple/dcc-release/dcc-storage-client-ceph-0.0.26-dist.tar.gz | \
     tar xvz --strip-components 1
 RUN mkdir -p /collab/gitroot && cd /collab/gitroot && \
-    git clone https://github.com/CancerCollaboratory/cli.git && \
+    git clone -b feature/ceph https://github.com/CancerCollaboratory/cli.git && \
     ln -s /collab/gitroot/cli/upload.sh /collab/upload.sh
 RUN ln -s /collab/gitroot/cli/upload-collab.sh /collab/upload-collab.sh
 RUN mkdir -p /collab/upload
